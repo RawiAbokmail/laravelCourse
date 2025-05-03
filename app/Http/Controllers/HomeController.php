@@ -12,7 +12,7 @@ class HomeController extends Controller
 
         $name = "Ali";
         $age = "20";
-        return view('index');
+        return view('site1.index');
     }
 
     public function about()

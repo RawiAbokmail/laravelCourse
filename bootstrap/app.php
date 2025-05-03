@@ -8,6 +8,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: [
             __DIR__.'/../routes/web.php',
+            __DIR__.'/../routes/personal.php',
+            __DIR__.'/../routes/creative.php',
             __DIR__.'/../routes/admin.php',
             __DIR__.'/../routes/teacher/teacher.php',
             __DIR__.'/../routes/student.php'
