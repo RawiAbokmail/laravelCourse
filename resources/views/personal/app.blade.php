@@ -16,6 +16,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('passets/css/styles.css') }}" rel="stylesheet" />
+        <style>
+            .navbar-nav .show > .nav-link, .navbar-nav .nav-link.active {
+           color: red;
+        }
+        </style>
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -26,14 +31,16 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="{{ route('personal.index') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('personal.resume') }}">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('personal.projects') }}">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('personal.contact') }}">Contact</a></li>
+                            {{-- {{ request()->url() == route('personal.index')? 'active' : '' }} --}}
+                            <li class="nav-item"><a class="nav-link {{ request()->routeIs('personal.index')? 'active' : '' }}" href="{{ route('personal.index') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link {{ request()->routeIs('personal.resume')? 'active' : '' }}" href="{{ route('personal.resume') }}">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link {{ request()->routeIs('personal.projects')? 'active' : '' }}" href="{{ route('personal.projects') }}">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link {{ request()->routeIs('personal.contact')? 'active' : '' }}" href="{{ route('personal.contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
             @yield('content')
         </main>
         <!-- Footer-->
